@@ -20,18 +20,17 @@ function playRound(playerSelection, computerSelection) {
 
   const bool = playerSelection.length > computerSelection.length;
   const list = [playerSelection, computerSelection];
+  // if (list.includes("Rock") && list.includes("Scissors")) return !bool;
+  // return bool;
 
-  if (list.includes("Rock") && list.includes("Scissors")) return !bool;
-  return bool;
-
-  //   if (list.includes("Rock") && list.includes("Scissors")) {
-  //     return `You ${!bool ? "Win" : "Lose"}! ${
-  //       !bool ? playerSelection : computerSelection
-  //     } beats ${bool ? playerSelection : computerSelection}`;
-  //   }
-  //   return `You ${bool ? "Win" : "Lose"}! ${
-  //     bool ? playerSelection : computerSelection
-  //   } beats ${!bool ? playerSelection : computerSelection}`;
+  if (list.includes("Rock") && list.includes("Scissors")) {
+    return `<p>You ${!bool ? "Win" : "Lose"}!</p><p>${
+      !bool ? playerSelection : computerSelection
+    } beats ${bool ? playerSelection : computerSelection}</p>`;
+  }
+  return `<p>You ${bool ? "Win" : "Lose"}!</p><p>${
+    bool ? playerSelection : computerSelection
+  } beats ${!bool ? playerSelection : computerSelection}</p>`;
 }
 
 function game() {
@@ -54,15 +53,16 @@ function game() {
 const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const ScissorsButton = document.getElementById("scissors");
+const result = document.getElementById("result");
 
 rockButton.addEventListener("click", function (e) {
-  alert(playRound("Rock", computerPlay()));
+  result.innerHTML = playRound("Rock", computerPlay());
 });
 
 paperButton.addEventListener("click", function (e) {
-  alert(playRound("Paper", computerPlay()));
+  result.innerHTML = playRound("Paper", computerPlay());
 });
 
 ScissorsButton.addEventListener("click", function (e) {
-  alert(playRound("Scissors", computerPlay()));
+  result.innerHTML = playRound("Scissors", computerPlay());
 });
