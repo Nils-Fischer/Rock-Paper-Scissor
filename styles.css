@@ -2,10 +2,6 @@
   font-family: "Nostromo";
   src: url("NostromoRegular-Medium.otf") format("opentype");
 }
-@font-face {
-  font-family: "Nostromo-Bold";
-  src: url("NOSTROMOREGULAR-BOLD.OTF");
-}
 
 body {
   height: 100vh;
