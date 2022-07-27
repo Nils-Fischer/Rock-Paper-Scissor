@@ -1,0 +1,27 @@
+body {
+  background-image: url(space-buddha.jpg);
+  background-color: black;
+  background-position: 0% 20%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#rock,
+#paper,
+#scissor {
+  background: rgb(225, 250, 255);
+  background: radial-gradient(
+    circle,
+    rgba(225, 250, 255, 1) 0%,
+    rgba(145, 170, 211, 0.8989269446767321) 100%
+  );
+  border-radius: 15px 15px;
+  width: 200px;
+  height: 100px;
+  align-self: flex-end;
+}
