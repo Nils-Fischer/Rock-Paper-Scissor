@@ -33,21 +33,24 @@ function playRound(playerSelection, computerSelection) {
   } beats ${!bool ? playerSelection : computerSelection}</p>`;
 }
 
-function game() {
-  playerScore = computerScore = 0;
-  for (let i = 0; i < 5; i++) {
-    let result = playRound(prompt(), computerPlay());
-    if (result === "Draw!" || result === "invalid input") {
-      console.log(result);
-      i--;
-    } else {
-      result ? playerScore++ : computerScore++;
-      console.log(`${result ? "Player" : "Computer"} won the round!`);
-    }
-  }
-  console.log(
-    `${playerScore > computerScore ? "Player" : "Computer"} won the game!`
-  );
+function updateScore(char) {
+  const score = document.getElementById("score");
+  if (score.textContent.length > 3) score.innerText = "0-0";
+  if (char === "!") return;
+  else if (char === "W")
+    score.innerText = `${
+      1 + parseInt(score.textContent.charAt(0))
+    }-${score.textContent.charAt(2)}`;
+  else if (char === "L")
+    score.innerText = `${score.textContent.charAt(0)}-${
+      1 + parseInt(score.textContent.charAt(2))
+    }`;
+  playerScore = score.textContent.charAt(0);
+  computerScore = score.textContent.charAt(2);
+  if (playerScore === "5" || computerScore === "5")
+    score.innerHTML = `${
+      playerScore > computerScore ? "You won the Game" : "You lost the Game"
+    }`;
 }
 
 const rockButton = document.getElementById("rock");
@@ -57,12 +60,15 @@ const result = document.getElementById("result");
 
 rockButton.addEventListener("click", function (e) {
   result.innerHTML = playRound("Rock", computerPlay());
+  updateScore(result.textContent.charAt(4));
 });
 
 paperButton.addEventListener("click", function (e) {
   result.innerHTML = playRound("Paper", computerPlay());
+  updateScore(result.textContent.charAt(4));
 });
 
 ScissorsButton.addEventListener("click", function (e) {
   result.innerHTML = playRound("Scissors", computerPlay());
+  updateScore(result.textContent.charAt(4));
 });

@@ -33,7 +33,7 @@ body {
   gap: 25%;
 }
 
-.score {
+#score {
   align-self: center;
   color: white;
   font-family: orbitron, monospace;
