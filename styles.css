@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Nostromo";
+  src: url("NostromoRegular-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "Nostromo-Bold";
+  src: url("NOSTROMOREGULAR-BOLD.OTF");
+}
+
 body {
   height: 100vh;
   background-color: black;
@@ -11,18 +20,29 @@ body {
   justify-content: safe space-evenly;
   align-items: center;
 
-  font-family: monospace;
+  font-family: Nostromo, monospace;
 }
 
 .container1 {
   flex: auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: top;
   align-items: center;
+  padding: 5%;
+  gap: 25%;
+}
+
+.score {
+  align-self: center;
+  color: white;
+  font-family: orbitron, monospace;
+  font-size: 500%;
+  font-weight: 1000;
 }
 
 .buttons {
-  flex: auto;
+  align-self: center;
   display: flex;
   gap: 20px;
 }
@@ -57,16 +77,29 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 15vh;
+  width: 30vh;
 
   background: rgb(255, 255, 255);
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.01) 20%,
-    rgba(91, 120, 160, 0.8) 80%
+    rgba(0, 0, 0, 0.7) 5%,
+    rgba(91, 120, 160, 0.1) 70%
   );
-  padding: 20px 20px;
+  padding: 5px;
   border-radius: 15px 15px;
   color: beige;
   font-size: 25px;
-  text-shadow: 0 0 7px #ffd700, 0 0 1px #fd1d1d, 0 0 1px #fcb045, 0 0 1px black;
+  text-shadow: 0 0 7px #ffd700, 0 0 1px #ffd700, 0 0 1px #fcb045, 0 0 1px black;
+}
+
+#rock:hover,
+#paper:hover,
+#scissors:hover {
+  font-size: 60px;
+  background: radial-gradient(
+    circle,
+    rgba(225, 250, 255, 0.1) 0%,
+    rgba(145, 170, 211, 0.98) 100%
+  );
 }
