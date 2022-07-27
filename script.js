@@ -50,3 +50,19 @@ function game() {
     `${playerScore > computerScore ? "Player" : "Computer"} won the game!`
   );
 }
+
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const ScissorsButton = document.getElementById("scissors");
+
+rockButton.addEventListener("click", function (e) {
+  alert(playRound("Rock", computerPlay()));
+});
+
+paperButton.addEventListener("click", function (e) {
+  alert(playRound("Paper", computerPlay()));
+});
+
+ScissorsButton.addEventListener("click", function (e) {
+  alert(playRound("Scissors", computerPlay()));
+});
